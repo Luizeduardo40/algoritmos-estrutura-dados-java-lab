@@ -6,7 +6,7 @@ public class NoArvoreBinaria<T> implements INoArvoreBinaria<T> {
     private INoArvoreBinaria<T> noEsquerdo;
     private INoArvoreBinaria<T> noDireito;
 
-    public NoArvoreBinaria(T dado) {
+    public NoArvoreBinaria(T dado){
         this.dado = dado;
     }
 
@@ -16,13 +16,18 @@ public class NoArvoreBinaria<T> implements INoArvoreBinaria<T> {
     }
 
     @Override
+    public void definirDado(T dado) {
+        this.dado = dado;
+    }
+
+    @Override
     public INoArvoreBinaria<T> obterNoEsquerdo() {
-        return this.noEsquerdo;
+      return this.noEsquerdo;
     }
 
     @Override
     public void definirNoEsquerdo(INoArvoreBinaria<T> noEsquerdo) {
-        this.noEsquerdo = noEsquerdo;
+       this.noEsquerdo = noEsquerdo;
     }
 
     @Override
@@ -31,12 +36,12 @@ public class NoArvoreBinaria<T> implements INoArvoreBinaria<T> {
     }
 
     @Override
-    public void definirNoDireito(INoArvoreBinaria<T> noDireito){
+    public void definirNoDireito(INoArvoreBinaria<T> noDireito) {
         this.noDireito = noDireito;
     }
 
     @Override
-    public int tamanho() {
+    public int tamanho(){
         int tamanhoSubArvoreEsquerda = (this.obterNoEsquerdo() != null) ? this.obterNoEsquerdo().tamanho() : 0;
         int tamanhoSubArvoreDireita = (this.obterNoDireito() != null) ? this.obterNoDireito().tamanho() : 0;
         return 1 + tamanhoSubArvoreEsquerda + tamanhoSubArvoreDireita;
